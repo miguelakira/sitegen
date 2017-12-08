@@ -1,9 +1,10 @@
 class SitesController < ApplicationController
   def index
+    @sites = Site.all
   end
 
   def show
-    site = Site.search_by_name(params[:title])
+    site = Site.friendly.find params[:id]
 
     @title = site.title
     @header = site.header

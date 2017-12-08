@@ -1,4 +1,7 @@
 class Site < ApplicationRecord
+    extend FriendlyId
+    friendly_id :title, use: :slugged
+
     has_one :calendar
 
     before_save :sanitize_strings
@@ -10,5 +13,4 @@ class Site < ApplicationRecord
     def sanitize_strings
       self.title = title.underscore
     end
-
 end

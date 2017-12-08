@@ -35,6 +35,7 @@ gem "jbuilder", "~> 2.5"
 
 gem "rails_admin", "~> 1.2"
 gem "devise", "~> 4.3"
+gem "friendly_id"
 
 
 group :development, :test do

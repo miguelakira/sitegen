@@ -1,9 +1,6 @@
 Rails.application.routes.draw do
-  get 'sites/index'
-
+  get 'sites/', to: 'sites#index'
   get 'home/index'
-
-  get 'home/indedx'
 
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -11,5 +8,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get "/sites/:title", to: "sites#show"
+
+  get "/sites/:id", to: "sites#show"
+  resources :sites
 end
