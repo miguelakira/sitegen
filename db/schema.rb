@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171208194453) do
+ActiveRecord::Schema.define(version: 20171208200136) do
 
   create_table "calendars", force: :cascade do |t|
     t.datetime "date"
@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(version: 20171208194453) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_calendars_on_site_id"
-    t.index [nil], name: "index_calendars_on_artist_id"
+    t.index [nil], name: "index_calendars_on_calendar_id"
+    t.index [nil], name: "index_calendars_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -33,15 +34,31 @@ ActiveRecord::Schema.define(version: 20171208194453) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
+  create_table "schedules", force: :cascade do |t|
+    t.datetime "date"
+    t.integer "user_id", null: false
+    t.integer "calendar_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calendar_id"], name: "index_schedules_on_calendar_id"
+    t.index ["user_id"], name: "index_schedules_on_user_id"
+  end
+
   create_table "sites", force: :cascade do |t|
     t.string "title", null: false
     t.text "header", null: false
     t.text "body", null: false
+    t.string "slug", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["slug"], name: "index_sites_on_slug", unique: true
+    t.index ["user_id"], name: "index_sites_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

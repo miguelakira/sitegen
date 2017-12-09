@@ -6,10 +6,6 @@ class CreateCalendars < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :calendars, :artist_id
-  end
-
-  def params
-    @params
+    add_index :calendars, :user_id
   end
 end
