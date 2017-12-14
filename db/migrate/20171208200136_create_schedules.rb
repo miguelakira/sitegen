@@ -7,6 +7,6 @@ class CreateSchedules < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
-    add_index :calendars, :calendar_id
+    # add_index :calendars, :calendar_id
   end
 end
