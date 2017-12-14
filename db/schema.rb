@@ -12,14 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20171208200136) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "calendars", force: :cascade do |t|
     t.datetime "date"
-    t.integer "site_id"
+    t.bigint "site_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["site_id"], name: "index_calendars_on_site_id"
-    t.index [nil], name: "index_calendars_on_calendar_id"
-    t.index [nil], name: "index_calendars_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -36,8 +37,8 @@ ActiveRecord::Schema.define(version: 20171208200136) do
 
   create_table "schedules", force: :cascade do |t|
     t.datetime "date"
-    t.integer "user_id", null: false
-    t.integer "calendar_id"
+    t.bigint "user_id", null: false
+    t.bigint "calendar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["calendar_id"], name: "index_schedules_on_calendar_id"
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 20171208200136) do
     t.text "header", null: false
     t.text "body", null: false
     t.string "slug", null: false
-    t.integer "user_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["slug"], name: "index_sites_on_slug", unique: true
