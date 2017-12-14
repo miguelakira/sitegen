@@ -24,6 +24,9 @@ default: &default
 development:
   <<: *default
   database: site_generator_development
+  username: akira
+  password:
+
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -81,5 +84,6 @@ test:
 production:
   <<: *default
   database: site_generator_production
-  username: site_generator
+  username: akira
   password: <%= ENV['site_generator_DATABASE_PASSWORD'] %>
+

@@ -1,0 +1,3 @@
+command: "/usr/local/Cellar/postgresql/10.1/bin/pg_dump" --host /Users/akira/Projects/rails/sitegenerator --port 50432 --username akira --schema-only --quote-all-identifiers --binary-upgrade --format=custom  --file="pg_upgrade_dump_1.custom" 'dbname=template1' >> "pg_upgrade_dump_1.log" 2>&1
+
+

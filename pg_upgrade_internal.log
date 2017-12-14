@@ -1,0 +1,85 @@
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 13:58:17 2017
+-----------------------------------------------------------------
+
+could not get pg_ctl version data using "/usr/local/Cellar/postgresql/10.1.0/bin/pg_ctl" --version: No such file or directory
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 13:58:30 2017
+-----------------------------------------------------------------
+
+could not open version file: /usr/local/var/postgres10.1/PG_VERSION
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 13:58:54 2017
+-----------------------------------------------------------------
+
+You must identify the directory where the old cluster binaries reside.
+Please use the -b command-line option or the PGBINOLD environment variable.
+Running in verbose mode
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 13:59:49 2017
+-----------------------------------------------------------------
+
+could not get pg_ctl version data using "/usr/local/Cellar/postgresql/9.5/bin/pg_ctl" --version: Undefined error: 0
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:04:54 2017
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql@9.6/9.6.5/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:05:11 2017
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql@9.6.5/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:05:50 2017
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql@9.6/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:06:14 2017
+-----------------------------------------------------------------
+
+check for "/usr/local/Cellar/postgresql@9.69.6.6/bin" failed: No such file or directory
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:06:24 2017
+-----------------------------------------------------------------
+
+
+*failure*
+Consult the last few lines of "pg_upgrade_server.log" for
+the probable cause of the failure.
+There seems to be a postmaster servicing the new cluster.
+Please shutdown that postmaster and try again.
+
+-----------------------------------------------------------------
+  pg_upgrade run on Thu Dec 14 14:06:53 2017
+-----------------------------------------------------------------
+
+Performing Consistency Checks
+-----------------------------
+Checking cluster versions                                   ok
+Checking database user is the install user                  ok
+Checking database connection settings                       ok
+Checking for prepared transactions                          ok
+Checking for reg* data types in user tables                 ok
+Checking for contrib/isn with bigint-passing mismatch       ok
+Checking for invalid "unknown" user columns                 ok
+Creating dump of global objects                             ok
+Creating dump of database schemas
+                                                            ok
+lc_collate values for database "postgres" do not match:  old "en_CA.UTF-8", new "en_US.UTF-8"
